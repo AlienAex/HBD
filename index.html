@@ -11,19 +11,45 @@
 
 <body>
     <div class="container">
-        <audio id="birthdayAudio" autoplay>
+        <audio id="birthdayAudio">
             <source src="music.mp3" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
+        <!-- The overlay and pop-up content -->
+        <div id="overlay" onclick="hidePopup()"></div>
+        <div id="popup">
+            <p>Quick question before I dive into birthday wishes: If you could age backward, which age would you pick to celebrate forever? 🎂😄</p>
+            <button class="btn btn-primary" onclick="hidePopup()">8 Years</button>
+            <button class="btn btn-primary" onclick="hidePopup()">16 Years</button>
+            <button class="btn btn-primary" onclick="hidePopup()">Skip</button>
+        </div>
         <div class="card-container">
             <div class="card">
                 <h1 class="card-title">HAPPY BIRTHDAY <br>MISS 🦋</h1>
                 <p class="card-text">"Happy Birthday! May your day be filled with joy, and the year ahead with laughter, love, and endless possibilities. 🎉🎂"</p>
             </div>
         </div>
-        <button id="playButton" class="btn btn-danger" onclick="playAudio()">Play Audio</button>
+        
     </div>
     <canvas id="Canvas"></canvas>
+    <script>
+        function showPopup() {
+          document.getElementById('overlay').style.display = 'block';
+          document.getElementById('popup').style.display = 'block';
+        }
+    
+        function hidePopup() {
+          document.getElementById('overlay').style.display = 'none';
+          document.getElementById('popup').style.display = 'none';
+          var audio = document.getElementById('birthdayAudio');
+            audio.play();
+        }
+    
+        // Show the pop-up on page load
+        window.onload = function() {
+          showPopup();
+        };
+      </script>
     <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
